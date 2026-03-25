@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Brief — March 25, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Bebas+Neue&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#f0ede6;color:#1a1a1a;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;padding:0}
+
+/* NAV */
+.nav{background:#1a1a1a;border-bottom:4px solid #f0ede6;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.nav-brand{font-size:12px;font-weight:600;letter-spacing:0.04em;color:#818cf8}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-greeting{font-size:12px;color:#94a3b8}
+.nav-date{font-size:11px;color:#94a3b8}
+
+.page{padding:24px;max-width:960px;margin:0 auto}
+
+/* HERO */
+.hero{margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.hero-kicker{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#888;margin-bottom:12px}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,52px);line-height:1;letter-spacing:0.02em;color:#1a1a1a;margin-bottom:12px}
+.hero h1 span{color:#e63312}
+.hero-lede{font-size:15px;line-height:1.7;color:#555;max-width:560px;border-left:3px solid #e63312;padding-left:16px}
+
+/* FOCUS STRIP */
+.focus-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:32px;border:4px solid #1a1a1a;border-radius:14px;overflow:hidden}
+.focus-cell{padding:20px;text-align:center;border-right:4px solid #f0ede6;background:#fff}
+.focus-cell:last-child{border-right:none}
+.focus-label{font-size:9px;text-transform:uppercase;letter-spacing:0.15em;color:#888;margin-bottom:8px}
+.focus-val{font-family:'Bebas Neue',sans-serif;font-size:36px;color:#1a1a1a;line-height:1}
+.focus-sub{font-size:10px;color:#888;margin-top:4px}
+.focus-cell.highlight{background:#1a1a1a}
+.focus-cell.highlight .focus-val{color:#e63312}
+.focus-cell.highlight .focus-label,.focus-cell.highlight .focus-sub{color:#94a3b8}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+
+.card{background:#fff;border:1px solid #e8e4dc;border-radius:14px;padding:20px}
+.card-head{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card-head-icon{font-size:16px}
+.card-head-line{flex:1;height:1px;background:#e8e4dc}
+
+/* PRIORITY LIST */
+.priority-item{display:flex;align-items:center;gap:12px;padding:12px;margin-bottom:8px;background:#faf9f6;border:1px solid #e8e4dc;border-radius:10px;transition:all 0.15s}
+.priority-item:hover{border-color:#818cf8;background:rgba(129,140,248,0.04)}
+.p-code{font-family:monospace;font-size:12px;font-weight:700;padding:4px 8px;border-radius:6px;background:rgba(129,140,248,0.1);color:#818cf8;min-width:32px;text-align:center}
+.p-name{font-size:13px;color:#1a1a1a;flex:1;font-weight:500}
+.p-dots{font-size:11px;color:#aaa;letter-spacing:1px}
+.p-status{font-size:14px}
+.priority-item.top{border-left:3px solid #e63312}
+.priority-item.top .p-code{background:rgba(230,51,18,0.15);color:#e63312}
+
+/* YESTERDAY RECAP */
+.recap-stat{display:flex;align-items:baseline;gap:12px;padding:10px 0;border-bottom:1px solid #e8e4dc}
+.recap-stat:last-child{border-bottom:none}
+.recap-n{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#e63312;min-width:40px;text-align:right}
+.recap-label{font-size:12px;color:#666}
+
+/* PARKED */
+.parked-item{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:12px;opacity:0.4}
+.parked-code{font-family:monospace;font-weight:700;color:#d29922;min-width:24px}
+.parked-name{color:#888}
+
+/* DAILY IDEAS */
+.ideas-section{margin-top:16px}
+.idea-row{display:flex;align-items:center;gap:10px;padding:10px 12px;margin-bottom:6px;background:#faf9f6;border:1px solid #e8e4dc;border-radius:8px}
+.idea-icon{font-size:14px}
+.idea-text{font-size:12px;color:#555}
+.idea-tag{font-size:9px;background:rgba(230,51,18,0.1);color:#e63312;padding:2px 6px;border-radius:4px;font-weight:600;letter-spacing:0.04em;margin-left:auto}
+
+/* QUOTE */
+.quote-block{margin:24px 0;padding:20px 24px;background:#faf9f6;border-left:3px solid #e63312;border-radius:0 10px 10px 0}
+.quote-text{font-size:14px;font-style:italic;color:#555;line-height:1.6}
+.quote-attr{font-size:10px;color:#aaa;margin-top:8px}
+
+/* TOOLS TODAY */
+.tools-row{display:flex;gap:8px;flex-wrap:wrap}
+.tool-chip{font-size:11px;padding:6px 12px;border-radius:20px;font-weight:600;letter-spacing:0.02em}
+.tool-primary{background:#1a1a1a;color:#818cf8;border:1px solid #1a1a1a}
+.tool-secondary{background:#faf9f6;color:#888;border:1px solid #e8e4dc}
+
+.footer{background:#1a1a1a;border-top:4px solid #f0ede6;padding:14px 24px;display:flex;justify-content:space-between;font-size:10px;color:#94a3b8;font-family:monospace;margin-top:32px}
+
+@media(max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .focus-strip{grid-template-columns:1fr}
+  .page{padding:16px}
+  .hero h1{font-size:36px}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-brand">Upstream Consulting</div>
+  <div class="nav-right">
+    <span class="nav-greeting">Good morning, Levi</span>
+    <span class="nav-date">Mar 25, 2026</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-kicker">Start of Day · Tuesday</div>
+    <h1>Today's <span>Focus</span></h1>
+    <div class="hero-lede">Yesterday was a build day — you set up the entire operating system. Today is about using it. Pick up the workflow walkthrough, test the system with a real project, and keep momentum.</div>
+  </div>
+
+  <!-- FOCUS STRIP -->
+  <div class="focus-strip">
+    <div class="focus-cell highlight">
+      <div class="focus-label">Priority Items</div>
+      <div class="focus-val">3</div>
+      <div class="focus-sub">active tasks</div>
+    </div>
+    <div class="focus-cell">
+      <div class="focus-label">Projects</div>
+      <div class="focus-val">4</div>
+      <div class="focus-sub">in progress</div>
+    </div>
+    <div class="focus-cell">
+      <div class="focus-label">Parked</div>
+      <div class="focus-val">3</div>
+      <div class="focus-sub">saved for later</div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- TODAY'S PRIORITY -->
+    <div class="card">
+      <div class="card-head"><span class="card-head-icon">🎯</span> Today's Priority <div class="card-head-line"></div></div>
+
+      <div class="priority-item top">
+        <span class="p-code">10</span>
+        <span class="p-name">Tool Workflow — real project walkthrough</span>
+        <span class="p-dots">◯◯◯◯◯</span>
+        <span class="p-status">🟡</span>
+      </div>
+
+      <div class="priority-item">
+        <span class="p-code">11</span>
+        <span class="p-name">SOPs & Templates — review and close</span>
+        <span class="p-dots">⬤⬤⬤⬤◯</span>
+        <span class="p-status">🟡</span>
+      </div>
+
+      <div class="priority-item">
+        <span class="p-code">12</span>
+        <span class="p-name">Brick N Mortr</span>
+        <span class="p-dots">⬤⬤⬤⬤◯</span>
+        <span class="p-status">🟢</span>
+      </div>
+
+      <div style="margin-top:16px">
+        <div class="card-head"><span class="card-head-icon">🗄️</span> Parked <div class="card-head-line"></div></div>
+        <div class="parked-item"><span class="parked-code">90</span><span class="parked-name">Dispatch — task routing</span></div>
+        <div class="parked-item"><span class="parked-code">91</span><span class="parked-name">CCW Connectors — Outlook / SharePoint</span></div>
+        <div class="parked-item"><span class="parked-code">92</span><span class="parked-name">Claude Code SSH — mobile</span></div>
+      </div>
+    </div>
+
+    <!-- YESTERDAY RECAP -->
+    <div class="card">
+      <div class="card-head"><span class="card-head-icon">📊</span> Yesterday's Output <div class="card-head-line"></div></div>
+
+      <div class="recap-stat"><span class="recap-n">9</span><span class="recap-label">docs created — SOPs and templates</span></div>
+      <div class="recap-stat"><span class="recap-n">6</span><span class="recap-label">folders built — Core\ structure</span></div>
+      <div class="recap-stat"><span class="recap-n">3</span><span class="recap-label">tools wired — VCC, CCW, CB</span></div>
+      <div class="recap-stat"><span class="recap-n">2</span><span class="recap-label">HTML visuals — ecosystem + architecture</span></div>
+      <div class="recap-stat"><span class="recap-n">4</span><span class="recap-label">items completed and archived</span></div>
+
+      <div class="quote-block">
+        <div class="quote-text">"Today you went from scattered tools to a connected ecosystem."</div>
+        <div class="quote-attr">— Session Brief, Mar 24</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="grid">
+
+    <!-- IDEAS FOR TODAY -->
+    <div class="card">
+      <div class="card-head"><span class="card-head-icon">💡</span> Ideas to Explore <div class="card-head-line"></div></div>
+
+      <div class="idea-row">
+        <span class="idea-icon">📄</span>
+        <span class="idea-text">Daily learning page — personal dashboard</span>
+        <span class="idea-tag">NEW</span>
+      </div>
+      <div class="idea-row">
+        <span class="idea-icon">💰</span>
+        <span class="idea-text">Daily billing log — track hours per project</span>
+        <span class="idea-tag">NEW</span>
+      </div>
+      <div class="idea-row">
+        <span class="idea-icon">⚡</span>
+        <span class="idea-text">Tool efficiency tracker — right tool for the job</span>
+        <span class="idea-tag">NEW</span>
+      </div>
+
+    </div>
+
+    <!-- TOOLS TODAY -->
+    <div class="card">
+      <div class="card-head"><span class="card-head-icon">🛠️</span> Tools for Today <div class="card-head-line"></div></div>
+
+      <p style="font-size:12px;color:#888;line-height:1.6;margin-bottom:16px">Based on your priority items, here's what you'll likely need open:</p>
+
+      <div class="tools-row" style="margin-bottom:16px">
+        <span class="tool-chip tool-primary">VCC ⟨VS Code + Claude⟩</span>
+        <span class="tool-chip tool-primary">CB ⟨Claude Browser⟩</span>
+      </div>
+
+      <div class="tools-row">
+        <span class="tool-chip tool-secondary">CCW ⟨Cowork⟩</span>
+        <span class="tool-chip tool-secondary">CIC ⟨Chrome⟩</span>
+      </div>
+
+      <p style="font-size:11px;color:#888;margin-top:16px;line-height:1.5">
+        <strong style="color:#e63312">Tip:</strong> Use CB for visual prototyping on the workflow walkthrough. VCC for everything else.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  <span>Upstream Consulting · upstreamconsulting.ca</span>
+  <span>Core\System\Summaries\SOD-2026-03-25.html</span>
+</div>
+
+</body>
+</html>
