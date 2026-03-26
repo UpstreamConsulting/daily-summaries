@@ -6,6 +6,12 @@
     "gitdoc.pushMode": "onCommit",
     "cronTasks.tasks": [
         {
+            "cronExpression": "0 7 * * 1-5",
+            "taskType": "shellCommand",
+            "command": "node C:/Users/levib/daily-summaries/generate-sod.js",
+            "label": "Generate SOD Summary"
+        },
+        {
             "cronExpression": "0 18 * * 1-5",
             "taskType": "shellCommand",
             "command": "node C:/Users/levib/daily-summaries/generate-eod.js",
