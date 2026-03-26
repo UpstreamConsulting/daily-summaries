@@ -3,193 +3,238 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Session Brief — Brutalist</title>
+<title>End of Day — March 25, 2026</title>
+<link rel="icon" href="EOD-icon.svg">
+<link rel="apple-touch-icon" href="EOD-icon.svg">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Bebas+Neue&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#f0ede6;color:#111;font-family:'Space Grotesk',sans-serif;min-height:100vh;overflow-x:hidden}
+body{background:#1a1a1a;color:#e8e6e0;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;padding:0}
 
-/* HEADER BLOCK */
-.header{background:#111;color:#f0ede6;padding:0}
-.header-top{display:grid;grid-template-columns:1fr auto;border-bottom:4px solid #f0ede6}
-.header-brand{padding:20px 28px;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.4;border-right:4px solid #f0ede6}
-.header-date{padding:20px 28px;font-size:11px;letter-spacing:0.1em;opacity:0.4}
-.header-main{padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:4px solid #f0ede6}
-.header-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,10vw,96px);line-height:0.9;letter-spacing:0.02em;grid-column:1/-1}
-.header-title span{color:#e63312}
-.header-sub{padding:20px 28px;font-size:12px;opacity:0.4;letter-spacing:0.05em;border-right:4px solid #f0ede6}
-.header-tool{padding:20px 28px;font-size:12px;opacity:0.4;letter-spacing:0.05em}
+/* NAV */
+.nav{background:#111;border-bottom:4px solid #2a2a2a;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.nav-brand{font-size:12px;font-weight:600;letter-spacing:0.04em;color:#818cf8}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-greeting{font-size:12px;color:#94a3b8}
+.nav-date{font-size:11px;color:#94a3b8}
 
-/* STAT STRIP */
-.stat-strip{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:4px solid #111}
-.stat-cell{padding:24px 16px;border-right:4px solid #111;text-align:center;background:#f0ede6}
+.page{padding:24px;max-width:960px;margin:0 auto}
+
+/* HERO */
+.hero{margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.hero-kicker{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#888;margin-bottom:12px}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,52px);line-height:1;letter-spacing:0.02em;color:#e8e6e0;margin-bottom:12px}
+.hero h1 span{color:#e63312}
+.hero-lede{font-size:15px;line-height:1.7;color:#94a3b8;max-width:560px;border-left:3px solid #e63312;padding-left:16px}
+
+/* STATS STRIP */
+.stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:32px;border:4px solid #2a2a2a;border-radius:14px;overflow:hidden}
+.stat-cell{padding:20px;text-align:center;border-right:4px solid #1a1a1a;background:#242424}
 .stat-cell:last-child{border-right:none}
-.stat-n{font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:#111;display:block}
-.stat-k{font-size:9px;text-transform:uppercase;letter-spacing:0.15em;color:#888;margin-top:2px;display:block}
-.stat-cell:first-child{background:#e63312;color:#fff}
-.stat-cell:first-child .stat-n{color:#fff}
-.stat-cell:first-child .stat-k{color:rgba(255,255,255,0.6)}
+.stat-label{font-size:9px;text-transform:uppercase;letter-spacing:0.15em;color:#888;margin-bottom:8px}
+.stat-val{font-family:'Bebas Neue',sans-serif;font-size:36px;color:#e63312;line-height:1}
+.stat-sub{font-size:10px;color:#888;margin-top:4px}
 
-/* MAIN */
-.main{display:grid;grid-template-columns:1fr 1fr;border-bottom:4px solid #111}
-.panel{border-right:4px solid #111;padding:28px}
-.panel:last-child{border-right:none}
-.panel-head{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.05em;margin-bottom:24px;display:flex;align-items:center;gap:12px}
-.panel-head-line{flex:1;height:4px;background:#111}
+/* GRID */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+
+.card{background:#242424;border:1px solid #2e2e2e;border-radius:14px;padding:20px}
+.card-head{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card-head-icon{font-size:16px}
+.card-head-line{flex:1;height:1px;background:#2e2e2e}
 
 /* DONE LIST */
-.done-list{display:flex;flex-direction:column;gap:0}
-.done-row{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:14px 0;border-bottom:2px solid rgba(17,17,17,0.1)}
-.done-row:last-child{border-bottom:none}
-.done-n{font-family:'Bebas Neue',sans-serif;font-size:28px;color:rgba(17,17,17,0.2);line-height:1}
-.done-title{font-size:13px;font-weight:700;margin-bottom:2px;text-transform:uppercase;letter-spacing:0.04em}
-.done-desc{font-size:11px;color:#666;line-height:1.4}
+.done-item{display:flex;align-items:center;gap:10px;padding:8px 12px;margin-bottom:6px;background:#2a2a2a;border:1px solid #333;border-radius:8px}
+.done-check{color:#5DCAA5;font-size:14px;flex-shrink:0}
+.done-text{font-size:12px;color:#c8c6c0}
 
-/* CHART PANEL */
-.chart-area{margin-bottom:32px}
-.bar-list{display:flex;flex-direction:column;gap:12px}
-.bar-item{display:grid;grid-template-columns:90px 1fr 28px;align-items:center;gap:10px}
-.bar-item-label{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#666;text-align:right}
-.bar-track{height:20px;background:rgba(17,17,17,0.08);position:relative;overflow:hidden}
-.bar-fill{height:100%;background:#111;position:absolute;left:0;top:0}
-.bar-fill.accent{background:#e63312}
-.bar-num{font-family:'Bebas Neue',sans-serif;font-size:22px;line-height:1;color:#111}
+/* TOMORROW */
+.tomorrow-item{display:flex;align-items:center;gap:10px;padding:10px 12px;margin-bottom:6px;background:#2a2a2a;border:1px solid #333;border-radius:8px}
+.tomorrow-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-priority{background:#e63312}
+.dot-project{background:#818cf8}
+.dot-ops{background:#EF9F27}
+.tomorrow-text{font-size:12px;color:#c8c6c0}
+.tomorrow-tag{font-size:9px;background:rgba(230,51,18,0.15);color:#e63312;padding:2px 6px;border-radius:4px;font-weight:600;margin-left:auto}
 
-/* OPEN ITEMS */
-.items-block{margin-top:0}
-.item-row{display:flex;align-items:center;gap:0;border:2px solid #111;margin-bottom:-2px;background:#f0ede6}
-.item-row.active{background:#111;color:#f0ede6}
-.item-row.parked{background:rgba(17,17,17,0.04);opacity:0.4}
-.item-n{font-family:'Bebas Neue',sans-serif;font-size:28px;padding:10px 14px;border-right:2px solid currentColor;line-height:1;min-width:52px;text-align:center;opacity:0.3}
-.item-text{font-size:12px;font-weight:500;padding:0 14px;flex:1;letter-spacing:0.02em}
-.item-tag{font-size:9px;text-transform:uppercase;letter-spacing:0.12em;padding:6px 12px;border-left:2px solid currentColor;opacity:0.5;white-space:nowrap}
+/* WINS */
+.win-item{padding:10px 0;border-bottom:1px solid #2e2e2e}
+.win-item:last-child{border-bottom:none}
+.win-text{font-size:13px;color:#c8c6c0;line-height:1.5}
+.win-text strong{color:#e8e6e0}
 
-/* MATRIX */
-.matrix{border-top:4px solid #111}
-.matrix-head{background:#111;color:#f0ede6;padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
-.matrix-head-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em}
-.matrix-head-sub{font-size:10px;opacity:0.4;text-transform:uppercase;letter-spacing:0.1em}
-.matrix-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:4px solid #111}
-.matrix-cell{padding:20px;border-right:4px solid #111;border-bottom:4px solid #111}
-.matrix-cell:nth-child(3n){border-right:none}
-.matrix-cell:nth-last-child(-n+3){border-bottom:none}
-.matrix-cell-label{font-size:9px;text-transform:uppercase;letter-spacing:0.14em;color:#888;margin-bottom:8px}
-.matrix-cell-val{font-family:'Bebas Neue',sans-serif;font-size:36px;line-height:1;color:#111}
-.matrix-cell-sub{font-size:10px;color:#888;margin-top:4px;line-height:1.3}
-.matrix-cell.highlight{background:#e63312;border-color:#c02b0e}
-.matrix-cell.highlight .matrix-cell-label{color:rgba(255,255,255,0.6)}
-.matrix-cell.highlight .matrix-cell-val{color:#fff}
-.matrix-cell.highlight .matrix-cell-sub{color:rgba(255,255,255,0.7)}
+/* QUOTE */
+.quote-block{margin:24px 0;padding:20px 24px;background:#2a2a2a;border-left:3px solid #e63312;border-radius:0 10px 10px 0}
+.quote-text{font-size:14px;font-style:italic;color:#94a3b8;line-height:1.6}
+.quote-attr{font-size:10px;color:#555;margin-top:8px}
 
-.footer{background:#111;color:#f0ede6;padding:16px 28px;display:flex;justify-content:space-between;font-size:10px;opacity:0.3;letter-spacing:0.08em;text-transform:uppercase}
+/* TRAY SNAPSHOT */
+.tray-item{display:flex;align-items:center;gap:12px;padding:8px 12px;margin-bottom:4px;background:#2a2a2a;border-radius:8px}
+.tray-code{font-family:monospace;font-size:12px;font-weight:700;padding:3px 7px;border-radius:5px;min-width:28px;text-align:center}
+.tray-code-p{background:rgba(230,51,18,0.15);color:#e63312}
+.tray-code-j{background:rgba(129,140,248,0.1);color:#818cf8}
+.tray-name{font-size:12px;color:#c8c6c0;flex:1}
+.tray-dots{font-size:10px;color:#555;letter-spacing:1px}
+.tray-status{font-size:12px}
+
+.footer{background:#111;border-top:4px solid #2a2a2a;padding:14px 24px;display:flex;justify-content:space-between;font-size:10px;color:#555;font-family:monospace;margin-top:32px}
+
+@media(max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .stats-strip{grid-template-columns:1fr 1fr}
+  .page{padding:16px}
+  .hero h1{font-size:36px}
+}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="header-top">
-    <div class="header-brand">Upstream Consulting</div>
-    <div class="header-date">March 24 — 2026</div>
-  </div>
-  <div class="header-main">
-    <div class="header-title">SESSION<br><span>BRIEF</span></div>
-  </div>
-  <div class="header-top">
-    <div class="header-sub">VCC · VS Code + Claude · Opus 4.6</div>
-    <div class="header-tool">Levi Dick · flowiseconsulting.sharepoint.com</div>
+<div class="nav">
+  <div class="nav-brand">Upstream Consulting</div>
+  <div class="nav-right">
+    <span class="nav-greeting">End of day, Levi</span>
+    <span class="nav-date">Mar 25, 2026</span>
   </div>
 </div>
 
-<div class="stat-strip">
-  <div class="stat-cell"><span class="stat-n">9</span><span class="stat-k">Docs</span></div>
-  <div class="stat-cell"><span class="stat-n">6</span><span class="stat-k">Folders</span></div>
-  <div class="stat-cell"><span class="stat-n">3</span><span class="stat-k">Tools Wired</span></div>
-  <div class="stat-cell"><span class="stat-n">2</span><span class="stat-k">Visuals</span></div>
-  <div class="stat-cell"><span class="stat-n">3</span><span class="stat-k">Parked</span></div>
-</div>
+<div class="page">
 
-<div class="main">
-  <div class="panel">
-    <div class="panel-head">What Got Built <div class="panel-head-line"></div></div>
-    <div class="done-list">
-      <div class="done-row"><div class="done-n">1</div><div><div class="done-title">Bubble Tray</div><div class="done-desc">Project tracker — progress dots, parking lot, quick commands</div></div></div>
-      <div class="done-row"><div class="done-n">2</div><div><div class="done-title">Ecosystem Map</div><div class="done-desc">All tools mapped — CD, VCC, CCW containers defined</div></div></div>
-      <div class="done-row"><div class="done-n">3</div><div><div class="done-title">Folder Structure</div><div class="done-desc">Core\ — System, SOP, Templates, Projects, Brainstorm, Archive</div></div></div>
-      <div class="done-row"><div class="done-n">4</div><div><div class="done-title">Response Format</div><div class="done-desc">Markers, spacing, footer, angle brackets — response-format.md</div></div></div>
-      <div class="done-row"><div class="done-n">5</div><div><div class="done-title">Working Model</div><div class="done-desc">VCC = command center · CCW = background · SP = bus</div></div></div>
-      <div class="done-row"><div class="done-n">6</div><div><div class="done-title">SOPs + Templates</div><div class="done-desc">7 SOPs · 3 templates · full playbook</div></div></div>
-      <div class="done-row"><div class="done-n">7</div><div><div class="done-title">CCW Setup + Token Rules</div><div class="done-desc">Cowork configured · waste reduction rules applied</div></div></div>
+  <div class="hero">
+    <div class="hero-kicker">End of Day · Tuesday</div>
+    <h1>Today <span>Delivered</span></h1>
+    <div class="hero-lede">Yesterday you built the operating system. Today you used it — and it worked. BMN went live, clients responded, Tony meeting drove real traction. The system is no longer theoretical.</div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stat-cell">
+      <div class="stat-label">Completed</div>
+      <div class="stat-val">12</div>
+      <div class="stat-sub">items shipped</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">BMN Responses</div>
+      <div class="stat-val">4</div>
+      <div class="stat-sub">people saw the demo</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Client Work</div>
+      <div class="stat-val">2</div>
+      <div class="stat-sub">Hughes Mech actions</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Leads Cleaned</div>
+      <div class="stat-val">151</div>
+      <div class="stat-sub">contacts ready</div>
     </div>
   </div>
 
-  <div class="panel">
-    <div class="panel-head">Output Breakdown <div class="panel-head-line"></div></div>
-    <div class="chart-area">
-      <div class="bar-list">
-        <div class="bar-item"><div class="bar-item-label">SOPs</div><div class="bar-track"><div class="bar-fill accent" style="width:100%"></div></div><div class="bar-num">7</div></div>
-        <div class="bar-item"><div class="bar-item-label">Folders</div><div class="bar-track"><div class="bar-fill" style="width:86%"></div></div><div class="bar-num">6</div></div>
-        <div class="bar-item"><div class="bar-item-label">Docs</div><div class="bar-track"><div class="bar-fill" style="width:86%"></div></div><div class="bar-num">6</div></div>
-        <div class="bar-item"><div class="bar-item-label">Templates</div><div class="bar-track"><div class="bar-fill" style="width:43%"></div></div><div class="bar-num">3</div></div>
-        <div class="bar-item"><div class="bar-item-label">Tools</div><div class="bar-track"><div class="bar-fill" style="width:43%"></div></div><div class="bar-num">3</div></div>
-        <div class="bar-item"><div class="bar-item-label">Parked</div><div class="bar-track"><div class="bar-fill accent" style="width:43%;opacity:0.3"></div></div><div class="bar-num">3</div></div>
-        <div class="bar-item"><div class="bar-item-label">Visuals</div><div class="bar-track"><div class="bar-fill" style="width:29%"></div></div><div class="bar-num">2</div></div>
+  <div class="grid">
+
+    <!-- WHAT GOT DONE -->
+    <div class="card">
+      <div class="card-head"><span class="card-head-icon">✅</span> Completed Today <div class="card-head-line"></div></div>
+
+      <div class="done-item"><span class="done-check">✓</span><span class="done-text">Core VCC branded blue / BMN VCC branded red</span></div>
+      <div class="done-item"><span class="done-check">✓</span><span class="done-text">Barb setup guide built (HTML)</span></div>
+      <div class="done-item"><span class="done-check">✓</span><span class="done-text">Email to Barb + text to Allan sent</span></div>
+      <div class="done-item"><span class="done-check">✓</span><span class="done-text">Barb session date set, passwords received</span></div>
+      <div class="done-item"><span class="done-check">✓</span><span class="done-text">SOD/EOD icons saved to System\Visuals</span></div>
+      <div class="done-item"><span class="done-check">✓</span><span class="done-text">Franchise lead list cleaned — 151 contacts</span></div>
+      <div class="done-item"><span class="done-check">✓</span><span class="done-text">CLAUDE.md auto-load for Core + BMN</span></div>
+      <div class="done-item"><span class="done-check">✓</span><span class="done-text">Response format updated — option code first</span></div>
+      <div class="done-item"><span class="done-check">✓</span><span class="done-text">Service lines framework captured</span></div>
+      <div class="done-item"><span class="done-check">✓</span><span class="done-text">BMN: 9 HTML files, pitch page, demo wrapper</span></div>
+      <div class="done-item"><span class="done-check">✓</span><span class="done-text">BMN deployed to Netlify — live link shared</span></div>
+      <div class="done-item"><span class="done-check">✓</span><span class="done-text">Tony meeting → 4 shares → intro + Cactus Club event</span></div>
+    </div>
+
+    <!-- WINS -->
+    <div class="card">
+      <div class="card-head"><span class="card-head-icon">🏆</span> Wins <div class="card-head-line"></div></div>
+
+      <div class="win-item"><div class="win-text"><strong>BMN got real traction.</strong> Shared with 4 people, one is setting up an intro, another connected you to a Cactus Club event in Vancouver.</div></div>
+      <div class="win-item"><div class="win-text"><strong>System works in practice.</strong> You used the full ecosystem today — VCC for Core, separate VCC for BMN, CB for brainstorming, cross-window prompts. Phases 1-3 validated.</div></div>
+      <div class="win-item"><div class="win-text"><strong>Business clarity.</strong> Three service lines identified: Construction Workflow, Owner Rep, Teaching. Framework saved.</div></div>
+
+      <div class="quote-block">
+        <div class="quote-text">"Yesterday you built the system. Today you proved it works."</div>
+        <div class="quote-attr">— EOD Brief, Mar 25</div>
       </div>
     </div>
 
-    <div class="panel-head">Open + Parked <div class="panel-head-line"></div></div>
-    <div class="items-block">
-      <div class="item-row active"><div class="item-n">10</div><div class="item-text">Tool Workflow — real walkthrough</div><div class="item-tag">Open</div></div>
-      <div class="item-row active"><div class="item-n">11</div><div class="item-text">SOPs & Templates — review</div><div class="item-tag">Open</div></div>
-      <div class="item-row"><div class="item-n">12</div><div class="item-text">Brick N Mortr</div><div class="item-tag">Next</div></div>
-      <div class="item-row parked"><div class="item-n">90</div><div class="item-text">Dispatch — task routing</div><div class="item-tag">Parked</div></div>
-      <div class="item-row parked"><div class="item-n">91</div><div class="item-text">CCW Connectors — Outlook / SP</div><div class="item-tag">Parked</div></div>
-      <div class="item-row parked"><div class="item-n">92</div><div class="item-text">Claude Code SSH</div><div class="item-tag">Parked</div></div>
-    </div>
   </div>
-</div>
 
-<div class="matrix">
-  <div class="matrix-head">
-    <div class="matrix-head-title">Ecosystem Matrix</div>
-    <div class="matrix-head-sub">Tool topology · March 24, 2026</div>
+  <div class="grid">
+
+    <!-- TOMORROW -->
+    <div class="card">
+      <div class="card-head"><span class="card-head-icon">📋</span> Tomorrow's Board <div class="card-head-line"></div></div>
+
+      <div class="tomorrow-item">
+        <span class="tomorrow-dot dot-project"></span>
+        <span class="tomorrow-text">Ankora — respond to Jeff's email</span>
+        <span class="tomorrow-tag">22</span>
+      </div>
+      <div class="tomorrow-item">
+        <span class="tomorrow-dot dot-priority"></span>
+        <span class="tomorrow-text">Hughes Mech — create Barb's M365 account</span>
+        <span class="tomorrow-tag">25</span>
+      </div>
+      <div class="tomorrow-item">
+        <span class="tomorrow-dot dot-ops"></span>
+        <span class="tomorrow-text">Payroll — Upstream Consulting</span>
+      </div>
+      <div class="tomorrow-item">
+        <span class="tomorrow-dot dot-priority"></span>
+        <span class="tomorrow-text">BMN — follow up on intro + Cactus Club</span>
+        <span class="tomorrow-tag">12</span>
+      </div>
+    </div>
+
+    <!-- TRAY SNAPSHOT -->
+    <div class="card">
+      <div class="card-head"><span class="card-head-icon">🎯</span> Tray Snapshot <div class="card-head-line"></div></div>
+
+      <div class="tray-item">
+        <span class="tray-code tray-code-p">10</span>
+        <span class="tray-name">Tool Workflow</span>
+        <span class="tray-dots">⬤⬤◯◯◯</span>
+        <span class="tray-status">🟡</span>
+      </div>
+      <div class="tray-item">
+        <span class="tray-code tray-code-p">11</span>
+        <span class="tray-name">SOPs & Templates</span>
+        <span class="tray-dots">⬤⬤⬤⬤◯</span>
+        <span class="tray-status">🟡</span>
+      </div>
+      <div class="tray-item">
+        <span class="tray-code tray-code-p">12</span>
+        <span class="tray-name">Brick N Mortr</span>
+        <span class="tray-dots">⬤⬤⬤⬤◯</span>
+        <span class="tray-status">🟢</span>
+      </div>
+      <div class="tray-item">
+        <span class="tray-code tray-code-p">25</span>
+        <span class="tray-name">Hughes Mech — Barb</span>
+        <span class="tray-dots">⬤⬤⬤⬤◯</span>
+        <span class="tray-status">🟡</span>
+      </div>
+      <div class="tray-item">
+        <span class="tray-code tray-code-j">22</span>
+        <span class="tray-name">Ankora</span>
+        <span class="tray-dots">⬤⬤◯◯◯</span>
+        <span class="tray-status">🟢</span>
+      </div>
+    </div>
+
   </div>
-  <div class="matrix-grid">
-    <div class="matrix-cell highlight">
-      <div class="matrix-cell-label">Command Center</div>
-      <div class="matrix-cell-val">VCC</div>
-      <div class="matrix-cell-sub">VS Code + Claude · Claude Code · GitLens</div>
-    </div>
-    <div class="matrix-cell">
-      <div class="matrix-cell-label">Desktop Client</div>
-      <div class="matrix-cell-val">CD</div>
-      <div class="matrix-cell-sub">Claude Desktop · houses CDC, CCW, CC</div>
-    </div>
-    <div class="matrix-cell">
-      <div class="matrix-cell-label">Background Worker</div>
-      <div class="matrix-cell-val">CCW</div>
-      <div class="matrix-cell-sub">Cowork · custom skills · Core\ folder</div>
-    </div>
-    <div class="matrix-cell">
-      <div class="matrix-cell-label">Shared Bus</div>
-      <div class="matrix-cell-val">SP</div>
-      <div class="matrix-cell-sub">SharePoint / OneDrive · Foundation site</div>
-    </div>
-    <div class="matrix-cell">
-      <div class="matrix-cell-label">SOPs Filed</div>
-      <div class="matrix-cell-val">7</div>
-      <div class="matrix-cell-sub">Full operating playbook complete</div>
-    </div>
-    <div class="matrix-cell">
-      <div class="matrix-cell-label">Items Remaining</div>
-      <div class="matrix-cell-val">3</div>
-      <div class="matrix-cell-sub">Items 10, 11, 12 — carry to next session</div>
-    </div>
-  </div>
+
 </div>
 
 <div class="footer">
   <span>Upstream Consulting · upstreamconsulting.ca</span>
-  <span>Core\System\session-summary-2026-03-24.html</span>
+  <span>Core\System\Summaries\EOD-2026-03-25.html</span>
 </div>
 
 </body>
