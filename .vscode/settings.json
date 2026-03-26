@@ -1,0 +1,15 @@
+{
+    "gitdoc.enabled": true,
+    "gitdoc.autoCommitDelay": 30000,
+    "gitdoc.commitMessageFormat": "Auto-update {file_name}",
+    "gitdoc.pullOnOpen": true,
+    "gitdoc.pushMode": "onCommit",
+    "cronTasks.tasks": [
+        {
+            "cronExpression": "0 18 * * 1-5",
+            "taskType": "shellCommand",
+            "command": "node C:/Users/levib/daily-summaries/generate-eod.js",
+            "label": "Generate EOD Summary"
+        }
+    ]
+}
